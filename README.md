@@ -1,0 +1,1 @@
+# beebox-hive-assets
