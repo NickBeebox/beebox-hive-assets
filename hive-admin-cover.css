@@ -1,0 +1,10 @@
+/* Beebox Hive Admin: page-load cover (v1, 18 Oct 2026)
+   Loads with the very first HTML so the unstyled Baserow page is never seen.
+   The page stays hidden on the grey background until the portal's own script adds
+   the class "bh-ready" to <html> (see SCRIPT 59 in the Hive admin app's Custom JS).
+   Failsafe: if the script never runs, the page releases itself after 3.5 seconds.
+   Contains no data, only this show/hide rule. */
+html { background: #EAEAEE; }
+html:not(.bh-ready) body { opacity: 0; animation: bh-release .35s ease 3.5s forwards; }
+html.bh-ready body { opacity: 1; transition: opacity .3s ease; }
+@keyframes bh-release { to { opacity: 1; } }
