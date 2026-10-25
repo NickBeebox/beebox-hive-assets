@@ -1,0 +1,17 @@
+/* Beebox Badge page: critical stylesheet (v1, 25 Oct 2026)
+   Loaded in <head> so it applies to the very first paint, before the page's own
+   styling and script arrive. It keeps the page content hidden until the badge app's
+   own custom CSS releases it (that CSS sets .page__content to visible with !important),
+   then the staged reveal rules below take over.
+   Failsafe: if the custom CSS never arrives, the page releases itself after 2.5 seconds.
+   Contains no data and no credentials. */
+@keyframes bhshow{to{opacity:1;transform:none}}
+@keyframes bhrelease{to{visibility:visible}}
+html,body{background:#fff}
+.page__content{visibility:hidden;animation:bhrelease .01s linear 2.5s forwards}
+.bh-b-title{opacity:0;animation:bhshow .01s linear 3.5s forwards}
+html.bh-tt .bh-b-title{opacity:1;transition:opacity .6s ease}
+.element__wrapper:has(.bh-icon){opacity:0;animation:bhshow .01s linear 16.5s forwards}
+html.bh-rel-d .element__wrapper:has(.bh-icon){opacity:1}
+.bh-b-note,.bh-b-h2,.bh-b-badge,.bh-b-dl,.bh-b-congrats,.bh-b-tip{opacity:0;transform:translateY(10px);animation:bhshow .01s linear 17s forwards}
+html.bh-rel .bh-b-note,html.bh-rel .bh-b-h2,html.bh-rel .bh-b-badge,html.bh-rel .bh-b-dl,html.bh-rel .bh-b-congrats,html.bh-rel .bh-b-tip{opacity:1;transform:none}

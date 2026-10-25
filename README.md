@@ -5,3 +5,4 @@ Small public files used by the Beebox Hive admin portal (Baserow Application Bui
 - `hive-admin-cover.css`: holds the admin page on a grey background until the portal's scripts have finished styling it, so the unstyled Baserow page never flashes. Loaded as an external stylesheet in the admin app's settings. Failsafe release after 3.5 seconds.
 
 Contains no data and no credentials. Maintained with Claude for Nick Boyd, Beebox Training.
+- `badge-critical.css`: head stylesheet for the Beebox Badge page (badge.beeboxtraining.com). Keeps the page hidden until its own styling arrives, so the unstyled page never flashes on reload.
